@@ -2,7 +2,7 @@ var express 	= require("express"),
 	app 		= express(),
 	bodyParser 	= require("body-parser"),
 	mongoose 	= require("mongoose"),
-	flash 		= require("connect-flash");
+	flash 		= require("connect-flash"),
 	passport	= require("passport"),
 	LocalStrategy = require("passport-local"),
 	methodOverride = require("method-override"),
@@ -21,7 +21,14 @@ var commentRoutes	 = require("./routes/comments"),
 
 
 //Connect to yelp_camp DB
-mongoose.connect("mongodb://localhost:27017/yelp_camp_v10", {useNewUrlParser: true, useUnifiedTopology: true});
+// mongoose.connect("mongodb://localhost:27017/yelp_camp_v10", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
+mongoose.connect("mongodb+srv://chandnijp:Maltesars1@cluster0-uy3sp.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true}).then(function(){
+	console.log("connected to DB!");
+}).catch(err => {
+	console.log("Error", err.message);
+});
+
+
 //Connect apps
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
