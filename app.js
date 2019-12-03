@@ -19,14 +19,14 @@ var commentRoutes	 = require("./routes/comments"),
 	indexRoutes 	= require("./routes/index");
 
 
-
 //Connect to yelp_camp DB
+mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 // mongoose.connect("mongodb://localhost:27017/yelp_camp_v10", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
-mongoose.connect("mongodb+srv://chandnijp:Maltesars1@cluster0-uy3sp.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true}).then(function(){
-	console.log("connected to DB!");
-}).catch(err => {
-	console.log("Error", err.message);
-});
+// mongoose.connect("mongodb+srv://chandnijp:Maltesars1@cluster0-uy3sp.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true}).then(function(){
+// 	console.log("connected to DB!");
+// }).catch(err => {
+// 	console.log("Error", err.message);
+// });
 
 
 //Connect apps
@@ -72,8 +72,8 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 
 
-// app.listen(3000, function() {
-// 	console.log("The YelpCamp server has started");
-// });
+app.listen(3000, function() {
+	console.log("The YelpCamp server has started");
+});
 
 app.listen(process.env.PORT, process.env.IP);
