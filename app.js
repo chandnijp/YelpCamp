@@ -20,13 +20,10 @@ var commentRoutes	 = require("./routes/comments"),
 
 
 //Connect to yelp_camp DB
-mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/yelp_camp_v10"
+mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 // mongoose.connect("mongodb://localhost:27017/yelp_camp_v10", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
-// mongoose.connect("mongodb+srv://chandnijp:Maltesars1@cluster0-uy3sp.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true}).then(function(){
-// 	console.log("connected to DB!");
-// }).catch(err => {
-// 	console.log("Error", err.message);
-// });
+// mongoose.connect("mongodb+srv://chandnijp:Maltesars1@cluster0-uy3sp.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true});
 
 
 //Connect apps
