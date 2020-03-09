@@ -1,7 +1,7 @@
 {
   "name": "v11deployed",
   "version": "1.0.0",
-  "description": "",
+  "description": "YelpCamp v11deployed",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
